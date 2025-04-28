@@ -3,6 +3,8 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework import routers
 
+
+
 # Backend Views
 from backend.views.agency_views import AgencyPlanViewSet
 from backend.views.director_views import DirectorPlanViewSet
@@ -27,10 +29,14 @@ router.register(r'measurement', MeasurementViewSet, basename='measurement')
 router.register(r'activity', ActivityViewSet, basename='activity')
 router.register(r'user-profile', UserProfileViewSet, basename='userprofile')
 
+
+
 # URL Patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # Optional: you could namespace it too if needed
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+
 ]
